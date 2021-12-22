@@ -18,18 +18,31 @@ class ViewController: UIViewController {
         return imageView
     }()
     
-    //    private let usernameTextField: UITextField = {
-    //        let textfield = UITextField()
-    //
-    //        return textfield
-    //    }()
-    //
-    //private let passwordTextField: UITextField = {
-    //}()
+    private let usernameTextField: UITextField = {
+        let textfield = UITextField()
+        textfield.placeholder = "Username"
+        textfield.backgroundColor = .white
+        textfield.borderStyle = .roundedRect
+        textfield.translatesAutoresizingMaskIntoConstraints = false
+        return textfield
+    }()
     
-    //    private let loginButton: UIButton = {
-    //
-    //    }()
+    private let passwordTextField: UITextField = {
+        let textfield = UITextField()
+        textfield.placeholder = "Password"
+        textfield.backgroundColor = .white
+        textfield.borderStyle = .roundedRect
+        textfield.translatesAutoresizingMaskIntoConstraints = false
+        textfield.isSecureTextEntry = true
+        return textfield
+    }()
+    
+    private let loginButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Login", for: .normal)
+        
+        return button
+    }()
     
     
     override func viewDidLoad() {
@@ -38,20 +51,19 @@ class ViewController: UIViewController {
         view.addSubview(facebookBrand)
     }
     
-    func setupStackView() {
-        var stackView: UIStackView = {
-            let stack = UIStackView()
-            stack.axis = .vertical
-            stack.spacing = 20.0
-            stack.alignment = .center
-            stack.distribution = .fillEqually
-            [self.facebookBrand] { stack.addArrangedSubview($0) }
-            return stack
-        }()
-    }
+    //    func setupStackView() {
+    //        var stackView: UIStackView = {
+    //            let stack = UIStackView()
+    //            stack.axis = .vertical
+    //            stack.spacing = 20.0
+    //            stack.alignment = .center
+    //            stack.distribution = .fillEqually
+    //            [self.facebookBrand] { stack.addArrangedSubview($0) }
+    //            return stack
+    //        }()
+    //    }
 }
 
 
 
-}
 
