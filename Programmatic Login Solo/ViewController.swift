@@ -38,30 +38,67 @@ class ViewController: UIViewController {
     }()
     
     private let loginButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Login", for: .normal)
-        
+        button.layer.cornerRadius = 5
+        button.clipsToBounds = true
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     
+    var stackView = UIStackView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0.26, green: 0.40, blue: 0.70, alpha: 1.00)
-        view.addSubview(facebookBrand)
+        setupStackView()
     }
     
-    //    func setupStackView() {
-    //        var stackView: UIStackView = {
-    //            let stack = UIStackView()
-    //            stack.axis = .vertical
-    //            stack.spacing = 20.0
-    //            stack.alignment = .center
-    //            stack.distribution = .fillEqually
-    //            [self.facebookBrand] { stack.addArrangedSubview($0) }
-    //            return stack
-    //        }()
-    //    }
+    func setupStackView() {
+        view.addSubview(stackView)
+        
+        stackView.addSubview(facebookBrand)
+        stackView.addSubview(usernameTextField)
+        stackView.addSubview(passwordTextField)
+        stackView.addSubview(loginButton)
+        
+        
+        setStackViewConstraints()
+    }
+    
+    func setStackViewConstraints() {
+        
+//        stackView.frame.origin.x = view.frame.width/2 - stackView.frame.width/2
+//        stackView.frame.origin.y = view.frame.height/2 - stackView.frame.width/2
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+  
+        stackView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        stackView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        stackView.heightAnchor.constraint(equalToConstant: view.frame.height/2).isActive = true
+        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        facebookBrand.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 40).isActive = true
+        facebookBrand.leftAnchor.constraint(equalTo: stackView.leftAnchor, constant: 20).isActive = true
+        facebookBrand.rightAnchor.constraint(equalTo: stackView.rightAnchor, constant: -20).isActive = true
+        facebookBrand.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        usernameTextField.topAnchor.constraint(equalTo: facebookBrand.topAnchor, constant: 40).isActive = true
+        usernameTextField.leftAnchor.constraint(equalTo: stackView.leftAnchor, constant: 20).isActive = true
+        usernameTextField.rightAnchor.constraint(equalTo: stackView.rightAnchor, constant: -20).isActive = true
+        usernameTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        passwordTextField.topAnchor.constraint(equalTo: usernameTextField.bottomAnchor, constant: 20).isActive = true
+        passwordTextField.leftAnchor.constraint(equalTo: stackView.leftAnchor, constant: 20).isActive = true
+        passwordTextField.rightAnchor.constraint(equalTo: stackView.rightAnchor, constant: -20).isActive = true
+        passwordTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20).isActive = true
+        loginButton.leftAnchor.constraint(equalTo: stackView.leftAnchor, constant: 180).isActive = true
+        loginButton.rightAnchor.constraint(equalTo: stackView.rightAnchor, constant: -180).isActive = true
+        loginButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
+    }
+    
 }
 
 
