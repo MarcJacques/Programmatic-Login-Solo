@@ -52,13 +52,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0.26, green: 0.40, blue: 0.70, alpha: 1.00)
-        setupStackView()
+        setupAutoLayout()
     }
     
-    func setupStackView() {
+    func setupAutoLayout() {
+        
+        
+        facebookBrand.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        facebookBrand.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        facebookBrand.heightAnchor.constraint(equalToConstant: view.frame.height/3).isActive = true
+        facebookBrand.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
         view.addSubview(stackView)
         
-        stackView.addSubview(facebookBrand)
+//        stackView.addSubview(facebookBrand)
         stackView.addSubview(usernameTextField)
         stackView.addSubview(passwordTextField)
         stackView.addSubview(loginButton)
@@ -73,17 +80,13 @@ class ViewController: UIViewController {
 //        stackView.frame.origin.y = view.frame.height/2 - stackView.frame.width/2
         stackView.translatesAutoresizingMaskIntoConstraints = false
   
+        stackView.topAnchor.constraint(equalTo: facebookBrand.bottomAnchor, constant: 20).isActive = true
         stackView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         stackView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        stackView.heightAnchor.constraint(equalToConstant: view.frame.height/2).isActive = true
+        stackView.heightAnchor.constraint(equalToConstant: view.frame.height/3).isActive = true
         stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
-        facebookBrand.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 40).isActive = true
-        facebookBrand.leftAnchor.constraint(equalTo: stackView.leftAnchor, constant: 20).isActive = true
-        facebookBrand.rightAnchor.constraint(equalTo: stackView.rightAnchor, constant: -20).isActive = true
-        facebookBrand.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        usernameTextField.topAnchor.constraint(equalTo: facebookBrand.topAnchor, constant: 40).isActive = true
+        usernameTextField.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 20).isActive = true
         usernameTextField.leftAnchor.constraint(equalTo: stackView.leftAnchor, constant: 20).isActive = true
         usernameTextField.rightAnchor.constraint(equalTo: stackView.rightAnchor, constant: -20).isActive = true
         usernameTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
