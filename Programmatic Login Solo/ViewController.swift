@@ -74,7 +74,7 @@ class ViewController: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
-        stack.distribution = .fill
+        stack.distribution = .fillEqually
         return stack
     }()
     
@@ -98,7 +98,7 @@ class ViewController: UIViewController {
         mainStackView.addArrangedSubview(facebookBrand)
         mainStackView.addArrangedSubview(userInfoStackView)
     
-//        mainStackView.heightAnchor.constraint(equalToConstant: view.frame.height - 250).isActive = true
+
         mainStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
         mainStackView.widthAnchor.constraint(equalToConstant: view.frame.width - 40).isActive = true
         mainStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
@@ -116,10 +116,10 @@ class ViewController: UIViewController {
 //        facebookBrand.bottomAnchor.constraint(equalTo: mainStackView.bottomAnchor, constant: 200).isActive = true
             
         userInfoStackView.topAnchor.constraint(equalTo: facebookBrand.bottomAnchor, constant: 60).isActive = true
-        userInfoStackView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor).isActive = true
-        userInfoStackView.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor).isActive = true
+        userInfoStackView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor, constant: 8).isActive = true
+        userInfoStackView.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor, constant: -8).isActive = true
 //        userInfoStackView.bottomAnchor.constraint(equalTo: mainStackView.bottomAnchor).isActive = true
-        userInfoStackView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+//        userInfoStackView.heightAnchor.constraint(equalToConstant: 100).isActive = true
 //        userInfoStackView.centerYAnchor.constraint(equalTo: mainStackView.centerYAnchor).isActive = true
 //        userInfoStackView.centerXAnchor.constraint(equalTo: mainStackView.centerXAnchor).isActive = true
         
@@ -135,13 +135,13 @@ class ViewController: UIViewController {
         userInfoStackView.addArrangedSubview(passwordTextField)
         
         usernameTextField.topAnchor.constraint(equalTo: userInfoStackView.bottomAnchor, constant: 20).isActive = true
-        usernameTextField.leftAnchor.constraint(equalTo: userInfoStackView.leftAnchor, constant: 20).isActive = true
-        usernameTextField.rightAnchor.constraint(equalTo: userInfoStackView.rightAnchor, constant: -20).isActive = true
+//        usernameTextField.leftAnchor.constraint(equalTo: userInfoStackView.leftAnchor, constant: 20).isActive = true
+//        usernameTextField.rightAnchor.constraint(equalTo: userInfoStackView.rightAnchor, constant: -20).isActive = true
         usernameTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
 
         passwordTextField.topAnchor.constraint(equalTo: usernameTextField.bottomAnchor, constant: 20).isActive = true
-        passwordTextField.leftAnchor.constraint(equalTo: userInfoStackView.leftAnchor, constant: 20).isActive = true
-        passwordTextField.rightAnchor.constraint(equalTo: userInfoStackView.rightAnchor, constant: -20).isActive = true
+//        passwordTextField.leftAnchor.constraint(equalTo: userInfoStackView.leftAnchor, constant: 20).isActive = true
+//        passwordTextField.rightAnchor.constraint(equalTo: userInfoStackView.rightAnchor, constant: -20).isActive = true
         passwordTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
     }
